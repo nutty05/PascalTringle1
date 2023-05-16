@@ -1,2 +1,39 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+using System;
+
+namespace PascalTriangleApp
+{
+    class PascalTriangleProgram
+    {
+        static void Main(string[] args)
+        {
+            int triangleLayers;
+
+            while (true)
+            {
+                Console.Write("Enter the total layers for the Pascal's Triangle: ");
+                triangleLayers = int.Parse(Console.ReadLine());
+
+                if (triangleLayers < 0)
+                {
+                    Console.WriteLine("Invalid number of layers. Please enter a non-negative value.");
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            for (int currentRow = 0; currentRow <= triangleLayers; currentRow++)
+            {
+                int value = 1;
+                for (int currentColumn = 0; currentColumn <= currentRow; currentColumn++)
+                {
+                    Console.Write(value + " ");
+                    value = value * (currentRow - currentColumn) / (currentColumn + 1);
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
+
